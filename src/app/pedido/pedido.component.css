@@ -1,0 +1,28 @@
+
+/* IMÁGENES DE LOS PRODUCTOS */
+.item-thumb {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border: 1px solid var(--emerald-border);
+  border-radius: 8px;
+}
+
+/* BOTONES DE AUMENTAR Y DISMINUIR */
+.btn-outline-gold {
+  border: 1px solid var(--gold-title);
+  color: var(--gold-title);
+  background-color: #111417;
+  font-weight: bold;
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--gold-title);
+  color: #080a0c;
+}
+
+/* BOTÓN PRINCIPAL */
+.button {
+  background-color: var(--emerald-accent);
+  color: var(--gold-title);
+}

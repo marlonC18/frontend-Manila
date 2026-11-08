@@ -1,0 +1,171 @@
+<div class="page-container py-5 px-3 px-md-5">
+  
+
+  
+  <div class="text-center mb-5">
+    <div class="card card-dark-luxury p-4 p-md-5 text-center border-emerald">
+     <h1 class="title-gold display-4 fw-bold">RESTAURANTE & COCTELERÍA MANILA</h1>
+     <p class="text ">Una experiencia gastronómica que combina lo mejor de la cocina internacional con un toque único de tradición local.</p>
+    </div>
+  </div>
+  
+
+
+  <div id="carouselManila" class="carousel slide mb-5 rounded overflow-hidden border border-emerald" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselManila" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#carouselManila" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselManila" data-bs-slide-to="2"></button>
+    </div>
+
+
+  
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/carrusel_restaurante.png" class="d-block w-100 carousel-img" alt="Ambiente Manila">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/carrusel_comidas.png" class="d-block w-100 carousel-img" alt="Coctelería Manila">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/carrusel_bebidas.png" class="d-block w-100 carousel-img" alt="Platos Manila">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselManila" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselManila" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+
+   <div class="row justify-content-center mb-5">
+    <div class="col-12 col-lg-9">
+      <div class="card card-dark-luxury p-4 p-md-5 text-center border-emerald">
+        <h2 class="title-gold mb-3 fs-3">Nuestra Historia </h2>
+        <p class="text">
+          Manila nació del deseo de unir la modernidad y la gastronomía. Cada receta y bebida es una experiencia única.
+          Nuestro compromiso es brindar una vivencia agradable y un momento inolvidable, donde los sabores, aromas y colores se fusionan para crear un ambiente lujoso y tranquilo. Un lugar donde la gastronomía se convierte en un mundo...
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div class="row g-4 mt-2">
+    <div class="col-12 text-center mb-3">
+      <div class="card card-dark-luxury p-4 p-md-5 text-center border-emerald">
+       <h3 class="title-gold border-bottom border-emerald d-inline-block pb-2">LO MEJOR DE MANILA</h3>
+      </div>
+    </div>
+  
+
+  
+
+  
+<!-- COMIDA ESTRELLA -->
+<div class="col-12 col-md-6">
+
+  <div class="card card-dark-luxury h-100 p-3">
+
+    <div class="title-gold border-bottom border-emerald d-inline-block pb-2">
+      PLATO ESTRELLA ★
+    </div>
+
+    <div *ngIf="cargandoComida" class="text-center py-5">
+      <p class="text-gold">Cargando comida estrella...</p>
+    </div>
+
+    <div *ngIf="comidaEstrella && !cargandoComida">
+
+      <img
+        [src]="comidaEstrella.strMealThumb"
+        [alt]="comidaEstrella.strMeal"
+        class="card-img-top item-img rounded">
+
+      <div class="card-body">
+
+        <h4 class="card-title text-gold">
+          {{ comidaEstrella.strMeal }}
+        </h4>
+
+        <p class="card-text text-secondary-manila">
+          Categoría: {{ comidaEstrella.strCategory }}
+        </p>
+
+        <p class="card-text text-secondary-manila">
+          Origen: {{ comidaEstrella.strArea }}
+        </p>
+
+        <span class="fs-4 fw-bold text-gold">
+          ${{ comidaEstrella.precio | number:'1.0-0' }}
+        </span>
+
+      </div>
+
+    </div>
+
+    <p
+      *ngIf="!comidaEstrella && !cargandoComida"
+      class="text-secondary-manila text-center">
+      No se pudo cargar la comida estrella.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- BEBIDA ESTRELLA -->
+<div class="col-12 col-md-6">
+
+  <div class="card card-dark-luxury h-100 p-3">
+
+    <div class="title-gold border-bottom border-emerald d-inline-block pb-2">
+      BEBIDA ESTRELLA ★
+    </div>
+
+    <div *ngIf="cargandoBebida" class="text-center py-5">
+      <p class="text-gold">Cargando bebida estrella...</p>
+    </div>
+
+    <div *ngIf="bebidaEstrella && !cargandoBebida">
+
+      <img
+        [src]="bebidaEstrella.strDrinkThumb"
+        [alt]="bebidaEstrella.strDrink"
+        class="card-img-top item-img rounded">
+
+      <div class="card-body">
+
+        <h4 class="card-title text-gold">
+          {{ bebidaEstrella.strDrink }}
+        </h4>
+
+        <p class="card-text text-secondary-manila">
+          Categoría: {{ bebidaEstrella.strCategory }}
+        </p>
+
+        <p class="card-text text-secondary-manila">
+          Tipo: {{ bebidaEstrella.strAlcoholic }}
+        </p>
+
+        <span class="fs-4 fw-bold text-gold">
+          ${{ bebidaEstrella.precio | number:'1.0-0' }}
+        </span>
+
+      </div>
+
+    </div>
+
+    <p
+      *ngIf="!bebidaEstrella && !cargandoBebida"
+      class="text-secondary-manila text-center">
+      No se pudo cargar la bebida estrella.
+    </p>
+
+  </div>
+
+</div>

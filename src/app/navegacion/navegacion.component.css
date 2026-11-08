@@ -1,0 +1,254 @@
+
+/* BARRA DE NAVEGACIÓN */
+.navbar-manila {
+  background-color: rgba(8, 10, 12, 0.96);
+  border-bottom: 2px solid var(--gold-title);
+  padding: 0.7rem 1rem;
+  backdrop-filter: blur(8px);
+}
+
+/* LOGO */
+.navbar-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--gold-title);
+  margin-right: 20px;
+}
+
+/* MARCO CIRCULAR DE SERPIENTE */
+.marco-menu {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 135px;
+  height: 135px;
+  flex-shrink: 0;
+
+  margin: 0 5px;
+  text-decoration: none;
+
+  /* Imagen de la serpiente */
+  background-image: url('/assets/botones.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 250% auto;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* BOTÓN VERDE EN EL INTERIOR */
+.boton-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 58%;
+  min-height: 43px;
+  padding: 8px 5px;
+
+  background-color: #3a3c3c;
+  color: #d4af37 !important;
+
+  border: 2px solid #d4af37;
+  border-radius: 50px;
+
+  font-family: var(--font-titles);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.8);
+
+  transition: all 0.3s ease;
+}
+
+/* EFECTO HOVER */
+.marco-menu:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 9px var(--gold-glow));
+}
+
+.marco-menu:hover .boton-menu {
+  background-color: #d4af37;
+  color: #080a0c !important;
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+/* PÁGINA ACTUAL */
+.marco-menu.active .boton-menu {
+  background-color: #0c3025;
+  color: #f2d477 !important;
+  border-color: #f2d477;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+/* BOTÓN MÓVIL */
+.custom-toggler {
+  border: 1px solid var(--gold-title);
+  background-color: var(--emerald-accent);
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(212,175,55,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"
+  );
+}
+
+
+/* PANEL DESPLEGABLE */
+@media (max-width: 991px) {
+
+  .navbar-collapse {
+    background: rgba(8, 10, 12, 0.97);
+    border: 1px solid var(--emerald-border);
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 8px 5px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.7);
+  }
+
+  /* LOGO MÁS PEQUEÑO */
+  .navbar-logo {
+    width: 65px;
+    height: 65px;
+    margin-right: 5px;
+  }
+
+  /* MARCOS DE SERPIENTE MÁS PEQUEÑOS */
+  .marco-menu {
+    width: 115px;
+    height: 95px;
+    margin: 1px auto;
+    background-size: 250% auto;
+  }
+
+  /* BOTONES INTERIORES */
+  .boton-menu {
+    width: 76%;
+    min-height: 34px;
+    padding: 5px 4px;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* LISTA MÁS COMPACTA */
+  .navbar-nav {
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* PANTALLAS MUY PEQUEÑAS */
+@media (max-width: 400px) {
+
+  .marco-menu {
+    width: 100px;
+    height: 85px;
+  }
+
+  .boton-menu {
+    font-size: 0.62rem;
+    min-height: 30px;
+  }
+
+  .navbar-logo {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* =====================================
+   MENÚ ORGANIZADO PARA MÓVILES
+   ===================================== */
+
+@media (max-width: 991px) {
+
+  /* DISTRIBUCIÓN DEL MENÚ */
+  .menu-manila {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    align-items: center;
+    gap: 5px !important;
+    width: 100%;
+  }
+
+  /* TODOS LOS ELEMENTOS */
+  .menu-manila .nav-item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* PRIMERA FILA: INICIO CENTRADO */
+  .menu-manila .nav-item:nth-child(1) {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
+
+  /* SEGUNDA FILA: COMIDAS */
+  .menu-manila .nav-item:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* SEGUNDA FILA: BEBIDAS */
+  .menu-manila .nav-item:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* SEGUNDA FILA: PEDIDO */
+  .menu-manila .nav-item:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  /* TERCERA FILA: JUEGO CENTRADO */
+  .menu-manila .nav-item:nth-child(5) {
+    grid-column: 1 / 4;
+    grid-row: 3;
+  }
+
+  /* AJUSTE DE LOS BOTONES */
+  .menu-manila .marco-menu {
+    width: 105px;
+    height: 90px;
+    margin: 0 auto;
+  }
+
+}
+
+/* AJUSTE PARA CELULARES PEQUEÑOS */
+@media (max-width: 400px) {
+
+  .menu-manila .marco-menu {
+    width: 90px;
+    height: 80px;
+  }
+
+  .menu-manila .boton-menu {
+    width: 80%;
+    font-size: 0.60rem;
+  }
+
+}

@@ -1,0 +1,32 @@
+
+.inicio-container {
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+/* CARRUSEL */
+#carouselManila {
+  width: 100%;
+  background-color: var(--bg-black-mate);
+}
+
+/* IMÁGENES DEL CARRUSEL */
+.carousel-img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* AJUSTE PARA CELULARES */
+@media (max-width: 768px) {
+
+  .carousel-img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+}
+

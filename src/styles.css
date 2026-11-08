@@ -1,0 +1,195 @@
+
+/* FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+
+/* VARIABLES */
+:root {
+  --bg-black-mate: #080a0c;
+  --bg-card-dark: rgba(17, 20, 23, 0.88);
+  --emerald-accent: #144f3d;
+  --emerald-border: #1a5c48;
+  --emerald-glow: rgba(20, 79, 61, 0.5);
+  --gold-title: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.4);
+  --text-primary: #e6e8ea;
+  --font-titles: 'Cinzel', serif;
+  --sidebar-width: 40px;
+}
+
+/* CONFIGURACIÓN GENERAL */
+html, body, app-root {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-image:
+    linear-gradient(
+      rgba(111, 113, 115, 0.35),
+      rgba(111, 113, 115, 0.35)
+    ),
+    url('/assets/fondo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: var(--bg-black-mate);
+}
+
+/* ESTRUCTURA PRINCIPAL */
+.main-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* BARRAS LATERALES */
+.side-bar {
+  width: var(--sidebar-width);
+  background-color: var(--emerald-accent);
+  flex-shrink: 0;
+  min-height: 100vh;
+  z-index: 1000;
+}
+
+.side-bar-left {
+  border-right: 2px solid var(--emerald-border);
+  box-shadow: 4px 0 15px var(--emerald-glow);
+}
+
+.side-bar-right {
+  border-left: 2px solid var(--emerald-border);
+  box-shadow: -4px 0 15px var(--emerald-glow);
+}
+
+/* FONDOS TRANSPARENTES */
+app-root,
+app-inicio,
+app-comidas,
+app-bebidas,
+app-pedido,
+app-juego,
+app-navegacion,
+main,
+.content-area,
+.container,
+.container-fluid {
+  background: transparent;
+}
+
+/* CONTENEDORES DE PÁGINA */
+.page-container {
+  background-color: transparent;
+  min-height: 90vh;
+}
+
+/* TARJETAS */
+.card,
+.card-dark-luxury {
+  background-color: var(--bg-card-dark);
+  border: 1px solid var(--emerald-border);
+  border-left: 5px solid var(--emerald-accent);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+.card-dark-luxury {
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-dark-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.8),
+    0 0 12px var(--emerald-glow);
+}
+
+/* IMÁGENES DE COMIDAS Y BEBIDAS */
+.item-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* COLORES DE TEXTO */
+h1, h2, h3, h4, .navbar-brand {
+  color: var(--gold-title);
+  font-family: var(--font-titles);
+}
+
+p, span, label, td, th,li {
+  color: var(--text-primary);
+}
+
+.title-gold {
+  color: var(--gold-title);
+  font-family: var(--font-titles);
+  letter-spacing: 4px;
+}
+
+.subtitle-emerald {
+  color: #2da87f;
+  letter-spacing: 2px;
+}
+
+.text-gold {
+  color: var(--gold-title) !important;
+}
+
+/* BORDES VERDES */
+.border-emerald {
+  border-color: rgba(20, 79, 61, 0.4) !important;
+}
+
+/* BOTONES */
+.btn-emerald-gold {
+  background-color: var(--emerald-accent);
+  color: var(--gold-title);
+  border: 1px solid var(--gold-title);
+  font-family: var(--font-titles);
+  padding: 0.8rem 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-emerald-gold:hover {
+  background-color: var(--gold-title);
+  color: var(--bg-black-mate);
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.btn-outline-gold {
+  border: 1px solid var(--gold-title);
+  color: var(--gold-title);
+  background: transparent;
+  padding: 0.1rem 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--gold-title);
+  color: #000;
+}
+
+
+.text-secondary-manila {
+  color: #c5cbd0 !important;
+}

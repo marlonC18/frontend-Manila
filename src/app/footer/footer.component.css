@@ -1,0 +1,87 @@
+
+.footer-manila {
+  background: #080a0c;
+  border-top: 3px solid #d4af37;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+  margin-top: 50px;
+  width: 100%;
+}
+
+.footer-logo {
+  color: #d4af37;
+  font-family: 'Cinzel', serif;
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.linea-dorada {
+  width: 65px;
+  height: 3px;
+  background: #d4af37;
+  margin: 15px 0 20px;
+}
+
+.footer-title {
+  color: #d4af37;
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+}
+
+.footer-text {
+  color: #c5cbd0;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.footer-text p {
+  margin-bottom: 8px;
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.footer-menu a {
+  color: #c5cbd0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.footer-menu a:hover {
+  color: #d4af37;
+  padding-left: 8px;
+}
+
+.footer-menu a.active {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  border-top: 1px solid #1a5c48;
+  margin-top: 40px;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  color: #92999e;
+  font-size: 13px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

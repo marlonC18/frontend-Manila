@@ -1,0 +1,192 @@
+
+<div class="page-container py-5 px-3 px-md-5">
+
+  <div class="text-center mb-5">
+    <div class="card card-dark-luxury p-4 p-md-5 text-center border-emerald">
+      <h2 class="title-gold display-5 fw-bold">NUESTRAS COMIDAS</h2>
+      <p class="subtitle-emerald">Explora el menú culinario de Manila</p>
+    </div>
+  </div>
+
+  <!-- Buscadores -->
+  <div class="card card-dark-luxury p-4 mb-5">
+
+    <div class="row g-3">
+
+      <div class="col-12 col-md-5">
+        <label class="form-label text-gold">Buscar por Nombre:</label>
+
+        <input
+          type="text"class="form-control"placeholder="Ej: Pizza, Chicken..." [(ngModel)]="nombreBusqueda"(keyup.enter)="buscarComidas()">
+      </div>
+
+      <div class="col-12 col-md-5">
+        <label class="form-label text-gold">Buscar por Ingrediente:</label>
+
+        <input
+          type="text"
+          class="form-control"placeholder="Ej: Salmon, Beef..."[(ngModel)]="ingredienteBusqueda"(keyup.enter)="buscarComidas()">
+      </div>
+
+      <div class="col-12 col-md-2 d-flex align-items-end">
+        <button type="button"class="btn btn-emerald-gold w-100" (click)="buscarComidas()"[disabled]="cargando">Buscar</button>
+      </div>
+
+    </div>
+
+    <!-- Categorías -->
+    <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top border-emerald">
+
+      <span class="text-gold me-2">Categorías:</span>
+
+      <button
+        class="btn btn-sm btn-outline-gold"
+        (click)="filtrarPorCategoria('Todas')">
+        Todas
+      </button>
+
+      <button
+        class="btn btn-sm btn-outline-gold"
+        *ngFor="let categoria of categorias"
+        (click)="filtrarPorCategoria(categoria.strCategory)">
+        {{ categoria.strCategory }}
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Cargando -->
+  <div class="text-center my-4" *ngIf="cargando">
+    <h5 class="text-gold">Cargando comidas...</h5>
+  </div>
+
+  <!-- Error -->
+  <div class="alert alert-danger text-center" *ngIf="mensajeError">
+    {{ mensajeError }}
+  </div>
+
+  <!-- Resultados -->
+  <div class="row g-4" *ngIf="!cargando">
+
+    <div
+      class="col-12 col-md-6 col-lg-4"
+      *ngFor="let comida of comidas">
+
+      <div class="card card-dark-luxury h-100">
+
+        <img
+          [src]="comida.strMealThumb"
+          [alt]="comida.strMeal"
+          class="card-img-top item-img">
+
+        <div class="card-body d-flex flex-column justify-content-between">
+
+          <div>
+            <h5 class="card-title text-gold">
+              {{ comida.strMeal }}
+            </h5>
+
+            
+            <div class="ingredientes-comida">
+
+              <button
+                type="button"
+                class="btn btn-outline-warning btn-sm mt-2"
+                (click)="mostrarIngredientes(comida)"
+                [disabled]="comida.cargandoIngredientes">
+
+                {{ comida.cargandoIngredientes
+                  ? 'Cargando ingredientes...'
+                  : comida.mostrarIngredientes
+                    ? 'Ocultar ingredientes'
+                    : 'Ver ingredientes' }}
+
+              </button>
+
+              <div *ngIf="comida.mostrarIngredientes" class="mt-3">
+
+                <h6 class="text-warning">Ingredientes:</h6>
+
+                <ul *ngIf="comida.ingredientes?.length > 0">
+                  <li  *ngFor="let ingrediente of comida.ingredientes">
+                    {{ ingrediente }}
+                  </li>
+                </ul>
+
+                <p *ngIf="comida.ingredientes?.length === 0">
+                  No hay ingredientes disponibles.
+                </p>
+
+              </div>
+
+              <p *ngIf="comida.errorIngredientes" class="text-danger mt-2">
+                {{ comida.errorIngredientes }}
+              </p>
+
+            </div>
+
+
+            
+          </div>
+
+          <div class="border-top border-emerald pt-3 mt-3">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+
+              <span class="fs-4 fw-bold text-gold">
+                ${{ comida.precio }}
+              </span>
+
+              <div class="d-flex align-items-center gap-2">
+
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-gold"
+                  (click)="modificarCantidadLocal(comida, -1)">
+                  -
+                </button>
+
+                <span class="px-2 fw-bold text-light fs-5">
+                  {{ comida.cantidadSeleccionada || 1 }}
+                </span>
+
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-gold"
+                  (click)="modificarCantidadLocal(comida, 1)">
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-emerald-gold w-100"
+              (click)="agregarAlPedido(comida)">
+              + Agregar al Pedido
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Cuando no hay resultados -->
+  <div
+    class="text-center my-5"
+    *ngIf="!cargando && comidas.length === 0 && !mensajeError">
+
+    <h5 class="text-gold">No se encontraron comidas.</h5>
+    <p class="text-light">Intenta realizar otra búsqueda.</p>
+
+  </div>
+
+</div>

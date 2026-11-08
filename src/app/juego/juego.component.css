@@ -1,0 +1,26 @@
+
+.grid-4x4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.grid-card {
+  aspect-ratio: 1;
+  background-color: #111417;
+  border: 2px solid var(--emerald-accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.grid-card:hover {
+  border-color: var(--gold-title);
+  transform: scale(1.05);
+}

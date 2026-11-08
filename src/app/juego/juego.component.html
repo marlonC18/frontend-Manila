@@ -1,0 +1,111 @@
+
+<div class="page-container py-5 px-3 px-md-5 d-flex flex-column align-items-center">
+
+  <!-- TÍTULO -->
+  <div class="text-center mb-4">
+    <div class="card card-dark-luxury p-4 p-md-5 text-center border-emerald">
+
+      <h2 class="title-gold display-5 fw-bold">
+        JUEGO DE MEMORIA MANILA
+      </h2>
+
+      <p class="subtitle-emerald">
+        Encuentra el plato y la bebida escondidos en la matriz 4x4
+      </p>
+
+    </div>
+  </div>
+
+  <!-- CONTENEDOR DEL JUEGO -->
+  <div class="card card-dark-luxury p-4 text-center max-w-lg w-100">
+
+    <!-- INFORMACIÓN -->
+    <div *ngIf="juegoIniciado" class="mb-3">
+
+      <h5 class="text-gold">
+        Intentos: {{ intentos }}
+      </h5>
+
+      <p class="text-secondary-manila">
+        Comida:
+        {{ comidaEncontrada ? 'Encontrada ✓' : 'Pendiente' }}
+      </p>
+
+      <p class="text-secondary-manila">
+        Bebida:
+        {{ bebidaEncontrada ? 'Encontrada ✓' : 'Pendiente' }}
+      </p>
+
+    </div>
+
+    <!-- MATRIZ 4X4 -->
+    <div class="grid-4x4 my-3">
+
+      <div
+        class="grid-card"
+        *ngFor="let casilla of casillas; let i = index"
+        (click)="descubrirCasilla(i)">
+
+        <div class="grid-card-inner">
+
+          <!-- CASILLA OCULTA -->
+          <span
+            *ngIf="!casilla.descubierta"
+            class="text-gold fw-bold fs-3">
+            ?
+          </span>
+
+          <!-- COMIDA ENCONTRADA -->
+          
+          <img
+            *ngIf="casilla.descubierta && casilla.tipo === 'comida'"
+            [src]="imagenComida"
+            alt="Gingerbread Waffles"
+            class="w-100 h-100">
+
+          <img
+            *ngIf="casilla.descubierta && casilla.tipo === 'bebida'"
+            [src]="imagenBebida"
+            alt="Old Fashioned"
+            class="w-100 h-100">
+
+
+          <span
+            *ngIf="casilla.descubierta && casilla.tipo === 'vacio'"
+            class="text-secondary-manila fs-3">
+            ✕
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- MENSAJE DE VICTORIA -->
+    <div *ngIf="juegoTerminado" class="mt-3">
+
+      <h4 class="text-gold">
+        ¡FELICIDADES! 🎉
+      </h4>
+
+      <p class="text-secondary-manila">
+        Encontraste la comida y la bebida en
+        {{ intentos }} intentos.
+      </p>
+
+    </div>
+
+    <!-- BOTÓN INICIAR / REINICIAR -->
+    <button
+      type="button"
+      class="btn btn-emerald-gold btn-lg mt-3 w-100"
+      (click)="iniciarJuego()">
+
+      {{ juegoIniciado ? 'REINICIAR JUEGO' : 'INICIAR JUEGO' }}
+
+    </button>
+
+  </div>
+
+</div>
